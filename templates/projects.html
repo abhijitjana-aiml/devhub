@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Projects</h3>
+<table class="table">
+  <thead><tr><th>Name</th><th>GitHub</th><th>Notes</th></tr></thead>
+  <tbody>
+    {% for p in projects %}
+      <tr>
+        <td>{{ p.name }}</td>
+        <td><a href="{{ p.github }}" target="_blank">{{ p.github }}</a></td>
+        <td>{{ p.notes }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

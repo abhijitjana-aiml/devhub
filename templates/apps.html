@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Apps</h3>
+<ul class="list-group">
+  {% for a in apps %}
+    <li class="list-group-item">
+      <strong>{{ a.name }}</strong> — <a href="{{ a.url }}">{{ a.url }}</a>
+      <p class="mb-0">{{ a.notes }}</p>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

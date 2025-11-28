@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Credentials</h3>
+
+<form method="post" class="mb-3">
+  <div class="row g-2">
+    <div class="col-md-3"><input name="name" class="form-control" placeholder="Name"/></div>
+    <div class="col-md-3"><input name="username" class="form-control" placeholder="Username"/></div>
+    <div class="col-md-3"><input name="password" type="password" class="form-control" placeholder="Password"/></div>
+    <div class="col-md-3"><input name="url" class="form-control" placeholder="URL"/></div>
+  </div>
+  <div class="mt-2"><button class="btn btn-success">Add Credential</button></div>
+</form>
+
+<table class="table">
+  <thead><tr><th>Name</th><th>Username</th><th>Password</th><th>URL</th></tr></thead>
+  <tbody>
+    {% for e in entries %}
+    <tr>
+      <td>{{ e.name }}</td>
+      <td>{{ e.username }}</td>
+      <td>{{ e.password_masked }}</td>
+      <td><a href="{{ e.url }}" target="_blank">{{ e.url }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
